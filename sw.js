@@ -1,4 +1,4 @@
-const CACHE_NAME = 'planilhapro-v4-design-approved-1';
+const CACHE_NAME = 'planilhapro-v4.1-editor-comparator-1';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('planilhapro-') && key !== CACHE_NAME).map(key => caches.delete(key)))).then(() => self.clients.claim())); });
